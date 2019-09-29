@@ -5,7 +5,7 @@
           <div class="">
             <div class="page-title">
               <div class="title_left">
-                <h3>INVENTORY <small>product</small></h3>
+                <h3>STOCK <small>good receive note</small></h3>
               </div>
             </div>
             <div class="clearfix"></div>
@@ -19,11 +19,11 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <ul class="nav navbar-right panel_toolbox">
-                      <li><button type="button" class="btn btn-def" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus"></i> Product</button>
+                      <li><button type="button" class="btn btn-def" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus"></i> Good Receive Note</button>
                       </li>
                     </ul>
                   </div>
-				  <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+				  {{-- <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-lg">
                       <div class="modal-content">
 
@@ -32,8 +32,8 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                    <form class="form-horizontal form-label-left" action="/product/create" method="POST">
-                        {{csrf_field()}}
+                    <form class="form-horizontal form-label-left" action="/create" method="POST">
+                      {{csrf_field()}}
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Item name</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
@@ -41,10 +41,20 @@
                         </div>
                       </div>
 					  <div class="form-group">
+                        <label class="control-label col-md-3 col-sm-3 col-xs-12">Supplier name</label>
+                        <div class="col-md-9 col-sm-9 col-xs-12">
+                          <input name="supplier" type="text" class="form-control" placeholder="">
+                        </div>
+                      </div>
+					  <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Select unit</label>
                         <div class="col-md-9 col-sm-9 col-xs-12">
                           <select class="form-control" name="unit">
-                            <option>Each</option>
+                            <option>Choose option</option>
+                            <option>g</option>
+                            <option>kg</option>
+                            <option>l</option>
+                            <option>ml</option>
                           </select>
                         </div>
                       </div>
@@ -60,7 +70,7 @@
                           <input name="shlf_life" type="number" class="form-control" placeholder="" min="0" max="1000">
                         </div>
 						<div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                          <select class="form-control">
+                          <select name="" class="form-control">
                             <option>Select unit</option>
                             <option>day</option>
                             <option>week</option>
@@ -71,7 +81,7 @@
 					  <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Lead time</label>
                         <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                          <input type="number" class="form-control" placeholder="" min="0" max="1000" name="lead_time">
+                          <input name="lead_time" type="number" class="form-control" placeholder="" min="0" max="1000">
                         </div>
 						<div class="col-md-2 col-sm-12 col-xs-12 form-group">
                           <select class="form-control">
@@ -85,13 +95,13 @@
 					  <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Safety stock</label>
                         <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                          <input type="number" class="form-control" placeholder="" min="0" max="10" name="sfty_stck">
+                          <input name="sfty_stck" type="number" class="form-control" placeholder="" min="0" max="10">
                         </div>
                       </div>
 					  <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Holding cost</label>
                         <div class="col-md-2 col-sm-12 col-xs-12 form-group">
-                          <input type="number" class="form-control" placeholder="" step="0.01" min="0" max="10" name="hlding_cost">
+                          <input name="hlding_cost" type="number" class="form-control" placeholder="" step="0.01" min="0" max="10">
                         </div>
                       </div>
 					  <div class="ln_solid"></div>
@@ -112,38 +122,39 @@
                     </ul>
 				  
                     <div class="clearfix"></div>
-                  </div>
+                  </div> --}}
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
-                      The list of products manufacture by this company.
                     </p>
                     <table id="datatable" class="table table-striped table-bordered">
                       <thead>
                         <tr>
-                          <th>ID</th>
-                          <th>Item</th>
-                          <th>Current Stock</th>
-						  <th>Safety Stock</th>
-                          <th>Lead Time</th>
-                          <th>Unit Cost (RM)</th>
-                          <th>Shelf Life</th>
-						  <th>Holding Cost</th>
+                          <th>GRN NO</th>
+                          <th>Supplier Invoice No</th>
+                          <th>Supplier Name</th>
+						              <th>Delivery Date</th>
+                          <th>Ordered Quantity</th>
+                          <th>Received Quantity</th>
+                          <th>Total Amount (RM)</th>
+						              <th>Action</th>
                         </tr>
                       </thead>
 
-                      @foreach($product as $rm)
+                      {{-- @foreach($raw_mtrial as $rm) --}}
                       <tbody>
                         <tr>
-                            <td>{{$rm->id}}</td>
-                            <td>{{$rm->item}}</td>
-                            <td>{{$rm->currnt_stck}}</td>
-                            <td>{{$rm->sfty_stck}}</td>
-                            <td>{{$rm->lead_time}}</td>
-                            <td>{{$rm->price_pr_unt}}</td>
-                            <td>{{$rm->shlf_life}}</td>
-                            <td>{{$rm->hlding_cost}}</td>
+                          <td>GRN0001</td>
+                          <td>INV0001</td>
+                          <td>Malayan Flour Mills Berhad</td>
+						              <td>22-8-2019</td>
+                          <td>20</td>
+                          <td>20</td>
+                          <td>105</td>
+						              <td><a  href='/'> <i class="fa fa-edit"></i></a> 
+                            <a  href='/'> <i class="fa fa-trash"></i></a>  
+                            <a  href='/'> <i class="fa fa-info"></i></a></td>
                         </tr>
-                        @endforeach
+                        {{-- @endforeach --}}
                       </tbody>
                     </table>
                   </div>
@@ -158,6 +169,6 @@
             </div>
           </div>
         </div>
+		
         <!-- /page content -->
-
         @endsection

@@ -42,24 +42,31 @@
                 <ul class="nav side-menu">
                   <li><a href="/dashboard"><i class="fa fa-home"></i> Home</a>
                   </li>
+                  <li><a href="/customer"><i class="fa fa-user"></i> Customer</a>
+                  </li>
+                  <li><a href="/supplier"><i class="fa fa-truck"></i> Supplier</a>
+                  </li>
+                  <li><a><i class="fa fa-building"></i> Inventory <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li class="sub_menu"><a href="/inventoryRaw">Raw Material</a> </li>
+                        <li><a href="/inventoryProduct">Product</a> </li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-archive"></i> Stock <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li class="sub_menu"><a href="/grn">Good Receiving</a> </li>
+                        <li><a href="/transaction">Inventory Stock</a> </li>
+                        <li><a href="/history">Transaction History</a> </li>
+                    </ul>
+                  </li>
+                  <li><a><i class="fa fa-tasks"></i> Order <span class="fa fa-chevron-down"></span></a>
+                    <ul class="nav child_menu">
+                        <li class="sub_menu"><a href="/orderRaw">Raw Material</a> </li>
+                        <li><a href="/orderProduct">Product</a> </li>
+                    </ul>
+                  </li>
                   <li><a><i class="fa fa-table"></i> MRP <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a>Inventory<span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                            <li class="sub_menu"><a href="/inventoryRaw">Raw Material</a>
-                            </li>
-                            <li><a href="/inventoryProduct">Product</a>
-                            </li>
-                          </ul>
-                        </li>
-						<li><a>Order<span class="fa fa-chevron-down"></span></a>
-                          <ul class="nav child_menu">
-                            <li class="sub_menu"><a href="/orderRaw">Raw Material</a>
-                            </li>
-                            <li><a href="/orderProduct">Product</a>
-                            </li>
-                          </ul>
-                        </li>
                       <li><a href="/bom">Bill of Materials</a></li>
 					  <li><a href="/mps">Master Production Schedule</a></li>
 					  <li><a href="/mrp">MRP</a></li>

@@ -19,9 +19,75 @@
 					<div class="table-responsive">
                       <div class="col-md-12 col-sm-12 col-xs-12">
                 <div class="x_panel">
-                  <div class="x_title">
-                    <div class="clearfix"></div>
-                  </div>
+                      <div class="x_title">
+                          <ul class="nav navbar-right panel_toolbox">
+                            <li><button type="button" class="btn btn-def" data-toggle="modal" data-target=".bs-example-modal-lg"><i class="fa fa-plus"></i> Order Raw Material</button>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-hidden="true">
+                            <div class="modal-dialog modal-lg">
+                              <div class="modal-content">
+        
+                                <div class="modal-header">
+                                  <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">×</span>
+                                  </button>
+                                </div>
+                                <div class="modal-body">
+                            <form class="form-horizontal form-label-left" action="/create" method="POST">
+                              {{csrf_field()}}
+                    <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Select Item</label>
+                                <div class="col-md-9 col-sm-9 col-xs-12">
+                                  <select class="form-control" name="unit">
+                                    <option>Choose option</option>
+                                    <option>Wheat Flour</option>
+                                    <option>High Protein Flour</option>
+                                    <option>Fibre</option>
+                                    <option>Vitamin</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="form-group">
+                                  <label class="control-label col-md-3 col-sm-3 col-xs-12">Default Supplier</label>
+                                  <div class="col-md-9 col-sm-9 col-xs-12">
+                                    <select class="form-control" name="unit">
+                                      <option>Choose option</option>
+                                      <option> </option>
+                                    </select>
+                                  </div>
+                                </div>
+                    <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Quantity</label>
+                                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                                  <input name="sfty_stck" type="number" class="form-control" placeholder="" min="0" max="10">
+                                </div>
+                              </div>
+                    <div class="form-group">
+                                <label class="control-label col-md-3 col-sm-3 col-xs-12">Expected Receive</label>
+                                <div class="col-md-2 col-sm-12 col-xs-12 form-group">
+                                  <input name="hlding_cost" type="text" class="form-control">
+                                </div>
+                              </div>
+                    <div class="ln_solid"></div>
+                              <div class="form-group">
+                                <div class="col-md-9 col-sm-9 col-xs-12 col-md-offset-3">
+                                  <button type="button" class="btn btn-other">Cancel</button>
+                                  <button type="reset" class="btn btn-other">Reset</button>
+                                  <button type="submit" class="btn btn-def">Submit</button>
+                                </div>
+                              </div>
+        
+                            </form>
+        
+                              </div>
+                            </div>
+                          </div>
+                              </li>
+                            </ul>
+                  
+                            <div class="clearfix"></div>
+                          </div>
                   <div class="x_content">
                     <p class="text-muted font-13 m-b-30">
                       The list of ordered raw materials from different kind of supplier.

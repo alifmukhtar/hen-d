@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductTable extends Migration
+class CreateRawmaterialTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,14 @@ class CreateProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('Product', function (Blueprint $table) {
+        Schema::create('rawmaterial', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->char('item', 100);
-            $table->char('unit', 5);
+            $table->integer('unit');
+            $table->integer('supplier');
             $table->decimal('currnt_stck', 8, 2)->default(0);
             $table->integer('lead_time');
+            $table->integer('lead_time_unit');
             $table->decimal('price_pr_unt', 8, 2);
             $table->integer('shlf_life');
             $table->decimal('sfty_stck', 8, 2);
@@ -35,6 +37,6 @@ class CreateProductTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Product');
+        Schema::dropIfExists('rawmaterial');
     }
 }

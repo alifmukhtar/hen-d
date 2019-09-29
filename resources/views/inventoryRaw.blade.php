@@ -32,7 +32,7 @@
                           </button>
                         </div>
                         <div class="modal-body">
-                    <form class="form-horizontal form-label-left" action="/rm/create" method="POST">
+                    <form class="form-horizontal form-label-left" action="/create" method="POST">
                       {{csrf_field()}}
                       <div class="form-group">
                         <label class="control-label col-md-3 col-sm-3 col-xs-12">Item name</label>

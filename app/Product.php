@@ -8,4 +8,8 @@ class Product extends Model
 {
     protected $table = 'product';
     protected $fillable = ['item','supplier', 'unit', 'price_pr_unt', 'shlf_life', 'lead_time', 'sfty_stck', 'hlding_cost'];
+
+    public function product_func(){
+        return $this->hasmany('App\bom','prdct_id','id');    
+    }
 }
