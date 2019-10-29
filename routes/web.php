@@ -19,6 +19,7 @@ Route::get('dashboard', function () {
     return view('dashboard');
 });
 
+
 Route::get('/bom/{product_id?}','BomController@index');
 
 Route::get('mrp', function () {
